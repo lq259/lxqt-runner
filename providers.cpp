@@ -312,7 +312,7 @@ void doUpdate(const QDomElement &xml, QHash<QString, AppLinkItem*> &items)
         if (e.tagName() == QL1S("Menu"))
             doUpdate(e, items);
 
-        //Build application link ................
+        // Build application link ................
         else if (e.tagName() == QL1S("AppLink"))
         {
             AppLinkItem *item = new AppLinkItem(e);
@@ -345,7 +345,7 @@ void AppLinkProvider::update()
                 // be deleted. Hence we need to call it on the copied item manually.
                 // Otherwise the copied item will have no icon.
                 // FIXME: this is a dirty hack and it should be made cleaner later.
-                if(item->icon().isNull())
+                if (item->icon().isNull())
                     QMetaObject::invokeMethod(item, "updateIcon", Qt::QueuedConnection);
                 delete newItem;
             }
